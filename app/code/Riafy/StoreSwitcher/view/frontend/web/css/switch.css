@@ -1,0 +1,9 @@
+.custom-switch .switcher-trigger{
+    cursor: pointer;
+}
+.custom-switch .switcher-options:hover .switcher-dropdown {
+    display: block;
+}
+.custom-switch .switcher-dropdown{
+    display: none;
+}

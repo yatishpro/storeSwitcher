@@ -1,0 +1,46 @@
+<?php
+
+/** @var \Riafy\StoreSwitcher\Block\StoreSwitcher $block */
+
+?>
+<div data-mage-init='{"popup":{}}'>
+
+<div id="popup-modal" class="custom-switch"  >
+
+<?php if (count($block->getGroups())>1) : ?>
+    <div class="switcher store switcher-store" id="switcher-store">
+        <strong class="label switcher-label"><b><span><?= $block->escapeHtml(__('Select Store and Click Continue:')) ?></span></b></strong>
+        <br/>
+        <div class="actions dropdown options switcher-options">
+            <?php foreach ($block->getGroups() as $_group) : ?>
+                <?php if ($_group->getId() == $block->getCurrentGroupId()) : ?>
+                    <div class="action toggle switcher-trigger"
+                         role="button"
+                         tabindex="0"
+                         data-mage-init='{"dropdown":{}}'
+                         data-toggle="dropdown"
+                         data-trigger-keypress-button="true"
+                         id="switcher-store-trigger">
+                        <strong>
+                            <span><?= $block->escapeHtml($_group->getName()) ?></span>
+                        </strong>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <ul class="dropdown switcher-dropdown" data-target="dropdown">
+                <?php foreach ($block->getGroups() as $_group) : ?>
+                    <?php if (!($_group->getId() == $block->getCurrentGroupId())) : ?>
+                        <li class="switcher-option">
+                            <a href="#" data-post='<?= /* @noEscape */ $block->getTargetStorePostData($_group->getDefaultStore()) ?>'>
+                                <?= $block->escapeHtml($_group->getName()) ?>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+<?php endif; ?>
+
+</div>
+</div>
