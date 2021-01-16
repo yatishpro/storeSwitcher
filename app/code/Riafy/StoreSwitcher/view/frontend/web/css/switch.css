@@ -2,8 +2,81 @@
     cursor: pointer;
 }
 .custom-switch .switcher-options:hover .switcher-dropdown {
-    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 .custom-switch .switcher-dropdown{
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 1s linear;
+    display: flex;
+    width: 99%;
+    justify-content: space-evenly;
+    list-style: none;
+}
+.custom-switch .dropdown.options.switcher-options{
+    display: flex;
+}
+.custom-switch .switcher-trigger{
+    background-size: cover;
+    display: inline-flex;
+    padding: 40px;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+    background-color: #9e9393d9;
+}
+.custom-switch .switcher-dropdown {
+margin: 80px 0px;
+}
+.custom-switch .switcher-dropdown a{
+    border: 2px solid #abab66;
+    background-color: #9e9393d9;
+    padding: 30px;
+    color: white;
+    font-size: 20px;
+    background-size: cover;
+    font-weight: bold;
+}
+.custom-switch .label.switcher-label{
+    float: right;
+}
+.modal-footer{
+    text-align: left !important;
+}
+
+@media  (min-width: 310px) {
+    .custom-switch .switcher-trigger{
+        background-size: cover;}
+    .custom-switch .switcher-options:hover .switcher-dropdown{
+        margin: 0;
+        padding: 0;
+    }
+    .custom-switch .dropdown.options.switcher-options{
+        flex-direction: column;
+    }
+    .custom-switch .switcher-options:hover .switcher-dropdown{
+        height: 70vh;
+    }
+    .custom-switch .switcher-dropdown{
+        flex-direction: column;
+        align-items: center;
+    }
+    .custom-switch .switcher-dropdown {
+        margin: 1px 0px;
+    }
+}
+@media  (min-width: 1024px) {
+    .custom-switch .switcher-trigger{width: 20%;}
+    .custom-switch .switcher-options:hover .switcher-dropdown{
+        margin: 80px 0px;
+    }
+    .custom-switch .switcher-dropdown{
+        flex-direction: row;
+        align-items: unset;
+    }
+    .custom-switch .switcher-options:hover .switcher-dropdown{
+        height: unset;
+    }
 }
